@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>One80 일팔공, 회독으로 끝내는 JLPT 단어</title>
+<meta name="description" content="One80(일팔공)은 JLPT(일본어능력시험) 대비 단어 앱입니다. N5부터 N1까지 급수를 고르고, 급수마다 180점 만점의 합격선을 향해 모르는 단어만 외울 때까지 회독. 로그인 없이, 기록은 iCloud로." />
+<meta property="og:title" content="One80 일팔공, 회독으로 끝내는 JLPT 단어" />
+<meta property="og:description" content="JLPT N5–N1 급수별 단어 앱. 180점 만점, 합격선까지 모르는 단어만 외울 때까지 회독." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jsonpassion.github.io/J180/" />
+<link rel="canonical" href="https://jsonpassion.github.io/J180/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23FFFFFF' stroke='%231A1A1A' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23EE3344'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- Soft drifting aurora + grain (atmosphere behind everything) -->
+<div class="aurora" aria-hidden="true">
+  <span class="blob b-blue"></span>
+  <span class="blob b-mint"></span>
+  <span class="blob b-lav"></span>
+  <span class="blob b-pink"></span>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ======================= NAV ======================= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-block">180</span> One80 <span class="logo-kr">일팔공</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how">학습 방법</a>
+      <a href="#features">기능</a>
+      <a href="#topics">JLPT 어휘</a>
+      <a href="#demo">미리 해보기</a>
+      <a href="#pricing">가격</a>
+      <a class="nb-btn nav-cta" href="#download">다운로드</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================= HERO ======================= -->
+<header class="hero wrap" id="download">
+  <div data-reveal="up">
+    <span class="nb-tag" style="background: #FFC2CB; margin-bottom: 18px;">JLPT 대비 단어, N5부터 N1까지</span>
+    <h1>급수를 고르고,<br /><span class="hl">합격선</span>까지<br />회독으로.</h1>
+    <p class="sub">
+      N5의 80점부터 N1의 100점까지, 급수마다 180점 만점의 합격선이 다릅니다.
+      내 급수의 단어를 한 권씩 넘기며 모르는 것만 골라 <strong>외울 때까지</strong> 다시 꺼내 보여줍니다.
+      로그인 없이, 기록은 iCloud로 영원히.
+    </p>
+    <div class="kr-brand" aria-label="VOCA for JLPT, 합격선을 향해 일팔공">
+      <span class="kk" style="background: #FFC2CB;">V</span>
+      <span class="kk" style="background: #EE3344;">O</span>
+      <span class="kk" style="background: #FFE3E7;">C</span>
+      <span class="kk" style="background: #FF9CAB;">A</span>
+      <span class="kk-for">for JLPT</span>
+      <span class="kr-brand-label">합격선을 향해, <strong>일팔공!</strong></span>
+    </div>
+    <div class="hero-ctas">
+      <span class="store-badge soon" aria-label="App Store 출시 준비 중">
+        <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor" aria-hidden="true"><path d="M18.3 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1.1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1s2.4 1 4 .9c1.7 0 2.7-1.5 3.7-3 1.2-1.7 1.6-3.4 1.7-3.5-.1 0-3.2-1.2-3.3-4.5zM15.2 4.8c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
+        <span><small>곧 만나요</small><span class="big">App Store 준비 중</span></span>
+      </span>
+      <a class="nb-btn secondary" href="#levels">급수 보기</a>
+    </div>
+  </div>
+
+  <!-- CSS-drawn app preview (출시 스크린샷 교체 전 임시 목업) -->
+  <div class="hero-visual" data-reveal="zoom">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="reel reel-slot" aria-hidden="true">
+    <!-- 온보딩 영상 자리: assets/video/onboarding-loop.mp4 가 생기면 <video> 로 교체 -->
+    <div class="slot-card"><b>180</b><span class="slot-eyes"><i></i><i></i></span></div>
+  </div>
+  <div class="phone" aria-hidden="true">
+    <div class="notch"></div>
+    <div class="mock-row score">
+      <div class="mock-ring"><span>104</span></div>
+      <div class="mock-bars">
+        마스터 <div class="mock-bar"><i style="width:64%; background: var(--mint);"></i></div>
+        회독 진도 <div class="mock-bar"><i style="width:72%; background: var(--lavender);"></i></div>
+      </div>
+    </div>
+    <div class="mock-row mock-cta">▶ 이어서 학습하기 <span>›</span></div>
+    <div class="mock-row" style="background: var(--pink);">⏱️ 3초 퀴즈로 모름 정리</div>
+    <div class="mock-row">
+      학습 진도 <span class="mock-chip" style="background: #FF9CAB;">N3</span>
+      <div class="mock-books" style="margin-top:8px;">
+        <div class="mock-book">1권</div>
+        <div class="mock-book reading b2">2권</div>
+        <div class="mock-book b3">3권</div>
+        <div class="mock-book b4">4권</div>
+      </div>
+    </div>
+    <div class="mock-row" style="background: var(--surface);">모름 단어 12개, 모아서 정리 <span class="mock-chip" style="background: var(--coral);">복습</span></div>
+  </div>
+  </div>
+</header>
+
+<!-- ======================= STATEMENT BAND 1 ======================= -->
+<section class="cinema" id="film" aria-label="회독 브랜드 필름">
+  <!-- 가로 필름 자리: assets/video/hero-fan.mp4 가 생기면 <video> 로 교체 -->
+  <div class="cinema-art" aria-hidden="true"></div>
+  <div class="scrim"></div>
+  <div class="cinema-inner">
+    <div class="cinema-copy">
+      <span class="kicker">회독 (回讀) · 돌려 읽기</span>
+      <h2>보고, 또 보고.<br /><span class="film-hl">남을 때까지.</span></h2>
+      <p>한 장씩 넘기고, 처음으로 돌아가 다시 넘깁니다. 모르는 단어가 익숙해질 때까지.</p>
+      <div class="spines" aria-hidden="true">
+        <span class="spine" style="background: #FFE3E7;">N5</span>
+        <span class="spine" style="background: #FFC2CB;">N4</span>
+        <span class="spine" style="background: #FF9CAB;">N3</span>
+        <span class="spine" style="background: #FF6F83;">N2</span>
+        <span class="spine" style="background: #F2405A;">N1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= STORY: scroll-linked card fan ======================= -->
+<section class="fan" id="story">
+  <div class="fan-inner">
+    <div class="fan-copy">
+      <span class="nb-tag" style="background: var(--mint);">회독 (回讀), 돌려 읽기</span>
+      <h2>한 번 본 단어는 잊혀도,<br /><em>열 번 본 단어</em>는 남습니다</h2>
+      <p>모르는 단어를 덱 맨 위로 계속 끌어올립니다. 알 때까지, 몇 번이고.</p>
+    </div>
+    <div class="fan-stage">
+      <div class="fan-deck" id="fanDeck">
+        <article class="fan-card" style="--a:-26deg; --x:-340px; --y:34px;">
+          <div class="fc-strip" style="background: #FFE3E7;"></div>
+          <b lang="ja">影響</b><span>영향</span><i lang="ja">えいきょう</i>
+          <span class="fc-badge" style="background: #FFE3E7;">漢字読み</span>
+        </article>
+        <article class="fan-card" style="--a:-15deg; --x:-196px; --y:8px;">
+          <div class="fc-strip" style="background: #FFC2CB;"></div>
+          <b lang="ja">締め切り</b><span>마감</span><i lang="ja">しめきり</i>
+          <span class="fc-badge" style="background: #FFC2CB;">表記</span>
+        </article>
+        <article class="fan-card" style="--a:-5deg; --x:-66px; --y:-6px;">
+          <div class="fc-strip" style="background: #FF9CAB;"></div>
+          <b lang="ja">相変わらず</b><span>여전히</span><i lang="ja">あいかわらず</i>
+          <span class="fc-badge" style="background: #FF9CAB;">言い換え</span>
+        </article>
+        <article class="fan-card" style="--a:5deg; --x:66px; --y:-6px;">
+          <div class="fc-strip" style="background: #FF6F83;"></div>
+          <b lang="ja">壊れる</b><span>고장 나다</span><i lang="ja">こわれる</i>
+          <span class="fc-badge" style="background: #FF6F83;">자·타동사</span>
+        </article>
+        <article class="fan-card" style="--a:15deg; --x:196px; --y:8px;">
+          <div class="fc-strip" style="background: #FFC2CB;"></div>
+          <b lang="ja">慌てる</b><span>허둥대다</span><i lang="ja">あわてる</i>
+          <span class="fc-badge" style="background: #FFC2CB;">文脈規定</span>
+        </article>
+        <article class="fan-card" style="--a:26deg; --x:340px; --y:34px;">
+          <div class="fc-strip" style="background: #F2405A;"></div>
+          <b lang="ja">促す</b><span>재촉하다</span><i lang="ja">うながす</i>
+          <span class="fc-badge" style="background: #F2405A;">用法</span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= HOW IT WORKS ======================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>이렇게 학습해요</h2>
+      <p>하루 5분. 네 단계면 충분합니다.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num" style="background: var(--blue);">1</div>
+        <h3>급수를 고르세요</h3>
+        <p>목표 급수를 바로 고르거나, 10문항 테스트로 지금 내 급수를 확인하세요. 어려운 단어를 맞히면 그만큼 높은 급수로.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background: var(--lavender);">2</div>
+        <h3>한 권을 꺼내 넘기세요</h3>
+        <p>오늘 볼 한 권을 책장에서 꺼냅니다. 앞면은 한자 표기만. 뒤집으면 읽기와 뜻, 예문이 나옵니다.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background: var(--coral);">3</div>
+        <h3>모르는 것만 다시</h3>
+        <p>모름 단어를 모아서 복습하고, 3초 퀴즈로 확인하세요. 외울 때까지 사라지지 않습니다.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background: var(--mint);">4</div>
+        <h3>회독을 쌓으세요</h3>
+        <p>연속 두 번 알면 마스터. 책장이 한 권씩 채워집니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FEATURES ======================= -->
+<section id="features" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>단어장 앱이 아니라, <u>급수별 회독 책장</u>입니다</h2>
+      <p>암기는 재능이 아니라 반복 설계와 묶음 설계의 문제라고 믿습니다.</p>
+    </div>
+    <div class="grid">
+      <div class="feature">
+        <div class="strip" style="background: var(--blue);"></div>
+        <div class="icon" style="background: var(--blue);">📚</div>
+        <h3>급수별 책장</h3>
+        <p>N5는 8권, N1은 25권. 급수마다 시험 범위만큼 권 수가 다릅니다. 책등 색으로 급수를, 빨간 책갈피로 현재 위치를 표시. 한 권은 100단어, 10챕터.</p>
+      </div>
+      <div class="feature">
+        <div class="strip" style="background: var(--mint);"></div>
+        <div class="icon" style="background: var(--mint);">🔁</div>
+        <h3>회독 시스템</h3>
+        <p>한 권을 끝내면 2회독, 3회독. 전체 다시 또는 모름만 골라 도는 회독 루프. 연속 2회독 "알아요"면 마스터.</p>
+      </div>
+      <div class="feature">
+        <div class="strip" style="background: var(--coral);"></div>
+        <div class="icon" style="background: var(--coral);">🎯</div>
+        <h3>모름 단어 집요 반복</h3>
+        <p>모른다고 한 단어는 "알아요"를 받아낼 때까지 절대 사라지지 않습니다. 챕터 사이, 메인 화면 어디서든 모아서 정리.</p>
+      </div>
+      <div class="feature">
+        <div class="strip" style="background: var(--pink);"></div>
+        <div class="icon" style="background: var(--pink);">⏱️</div>
+        <h3>3초 룰 퀴즈</h3>
+        <p>3초 안에 뜻을 못 고르면 모르는 겁니다. 화면 테두리가 시계방향으로 사라지는 카운트다운과 함께 즉답 반사신경을 단련.</p>
+      </div>
+      <div class="feature">
+        <span class="new-flag">NEW</span>
+        <div class="strip" style="background: var(--yellow);"></div>
+        <div class="icon" style="background: var(--yellow);">🗓️</div>
+        <h3>오늘의 20문제</h3>
+        <p>하루 한 번, 지금까지 열어 둔 전 범위에서 무작위 20문제. 오래전에 외운 권이 슬쩍 섞여 나와 잊을 틈을 주지 않습니다.</p>
+      </div>
+      <div class="feature">
+        <div class="strip" style="background: var(--lavender);"></div>
+        <div class="icon" style="background: var(--lavender);">🔊</div>
+        <h3>자동 학습 모드</h3>
+        <p>손대지 않아도 카드가 넘어갑니다. 일본어를 읽고, 뒤집어 뜻을 읽고, 다시 일본어로 두 번. 걸으면서 귀로 익히는 읽기.</p>
+      </div>
+      <div class="feature">
+        <div class="strip" style="background: var(--blue);"></div>
+        <div class="icon" style="background: var(--blue);">🎓</div>
+        <h3>급수 테스트</h3>
+        <p>급수마다 2문항, 난이도 가중 배점으로 지금 내 급수를 판정. N1 단어를 맞히면 그만큼 높은 급수를 추천합니다.</p>
+      </div>
+      <div class="feature">
+        <div class="strip" style="background: var(--lime);"></div>
+        <div class="icon" style="background: var(--lime);">🔤</div>
+        <h3>카드 한 장에 전부</h3>
+        <p>후리가나 읽기, 한국 한자음으로 잇는 TIP, 급수 수준 예문과 번역, 그리고 일본어 TTS까지. 한자는 일본식 글자꼴로 보여 줍니다.</p>
+      </div>
+      <div class="feature">
+        <div class="strip" style="background: var(--mint);"></div>
+        <div class="icon" style="background: var(--mint);">☁️</div>
+        <h3>로그인 없음, 기록은 영원히</h3>
+        <p>회원가입 없이 시작. 진도와 회독, 마스터 기록은 내 iCloud에 저장되어 앱을 지웠다 깔아도 그대로 복원됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TOPIC SHELF ======================= -->
+<section id="topics">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>JLPT 어휘는 여섯 가지로 묻습니다</h2>
+      <p>언어지식(문자·어휘) 파트의 문제 유형 그대로. 권마다 여섯 갈래를 섞어 담았습니다.</p>
+    </div>
+    <div class="topics">
+      <div class="topic" style="border-left-color: #EE3344;"><div class="t-icon" aria-hidden="true">🈷️</div><h4>漢字読み</h4><small>한자 읽기</small><span class="t-count">影響 → えいきょう</span></div>
+      <div class="topic" style="border-left-color: #FF9CAB;"><div class="t-icon" aria-hidden="true">✍️</div><h4>表記</h4><small>표기</small><span class="t-count">しめきり → 締め切り</span></div>
+      <div class="topic" style="border-left-color: #FFC2CB;"><div class="t-icon" aria-hidden="true">🧩</div><h4>語形成</h4><small>파생어</small><span class="t-count">〜的 · 〜性 · 再〜</span></div>
+      <div class="topic" style="border-left-color: #FF6F83;"><div class="t-icon" aria-hidden="true">🔎</div><h4>文脈規定</h4><small>문맥에 맞는 말</small><span class="t-count">빈칸에 들어갈 단어</span></div>
+      <div class="topic" style="border-left-color: #F2405A;"><div class="t-icon" aria-hidden="true">🔁</div><h4>言い換え類義</h4><small>바꿔 말하기</small><span class="t-count">相変わらず ≒ いつもと同じ</span></div>
+      <div class="topic" style="border-left-color: #FFE3E7;"><div class="t-icon" aria-hidden="true">🎯</div><h4>用法</h4><small>쓰임</small><span class="t-count">문장 속 올바른 사용</span></div>
+    </div>
+    <p class="topics-note">
+      카드 앞면에는 <strong>한자 표기만</strong> 보입니다. 읽기를 떠올린 뒤 뒤집어 확인하는 것이 漢字読み 훈련 그대로이고,
+      TIP은 한국 한자음(影響=영향), 장음·촉음 함정, 자·타동사 짝, 유의어 구분처럼 시험장에서 갈리는 한 줄만 적었습니다.
+    </p>
+  </div>
+</section>
+
+<!-- ======================= LEVELS ======================= -->
+<section id="levels" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>점수대가 아니라, 급수를 고릅니다</h2>
+      <p>JLPT는 급수마다 따로 치르는 합격·불합격 시험입니다. 180점 만점에 합격선과 과목별 기준점(19점)을 넘겨야 합격.</p>
+    </div>
+    <div class="levels levels-5">
+      <div class="level"><div class="chip" style="background: #FFE3E7;"></div><h4>N5 기초</h4><small>합격 80/180 · 8권</small></div>
+      <div class="level"><div class="chip" style="background: #FFC2CB;"></div><h4>N4 초급</h4><small>합격 90/180 · 7권</small></div>
+      <div class="level"><div class="chip" style="background: #FF9CAB;"></div><h4>N3 중급</h4><small>합격 95/180 · 20권</small></div>
+      <div class="level"><div class="chip" style="background: #FF6F83;"></div><h4>N2 중상급</h4><small>합격 90/180 · 20권</small></div>
+      <div class="level"><div class="chip" style="background: #F2405A;"></div><h4>N1 고급</h4><small>합격 100/180 · 25권</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SCREENSHOTS ======================= -->
+<section id="screens">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>화면 미리보기</h2>
+      <p>네오브루탈리즘 디자인. 세 가지 핵심 화면이 실제 앱처럼 움직입니다.</p>
+    </div>
+    <div class="shots">
+      <div>
+        <div class="shot-frame">
+          <div class="shot-anim sa-dash" aria-label="대시보드 애니메이션 미리보기">
+            <div class="sa-top">
+              <span class="sa-pill" style="background: #FF9CAB;">N3</span>
+              <span class="sa-pill" style="background: #FFC2CB;">2권 2회독</span>
+            </div>
+            <div class="sa-card">
+              <div class="sa-ring"><i></i><span>104</span></div>
+              <div class="sa-bars">
+                <small>외운 단어</small>
+                <div class="sa-bar"><i class="sa-fill-mint"></i></div>
+                <small>이번 회독</small>
+                <div class="sa-bar"><i class="sa-fill-blue"></i></div>
+              </div>
+            </div>
+            <div class="sa-card">
+              <div class="sa-shelf">
+                <div class="sa-book sa-done" style="border-left-color: var(--mint);"><i>✓</i><span>1권</span></div>
+                <div class="sa-book sa-reading" style="border-left-color: var(--blue);"><b></b><i>▸</i><span>2권</span></div>
+                <div class="sa-book" style="border-left-color: var(--lavender);"><i></i><span>3권</span></div>
+                <div class="sa-book" style="border-left-color: var(--pink);"><i></i><span>4권</span></div>
+              </div>
+              <div class="sa-grid">
+                <span class="sa-cell sa-c1">Ch.1</span>
+                <span class="sa-cell sa-c2">Ch.2</span>
+                <span class="sa-cell sa-c3">Ch.3</span>
+                <span class="sa-cell sa-cur">▶ Ch.4</span>
+                <span class="sa-cell">Ch.5</span>
+                <span class="sa-cell">Ch.6</span>
+                <span class="sa-cell">Ch.7</span>
+                <span class="sa-cell">Ch.8</span>
+                <span class="sa-cell">Ch.9</span>
+              </div>
+              <div class="sa-stats">오늘 4분 학습<b>🔥 연속 7일</b><em>2장만 더!</em></div>
+            </div>
+            <div class="sa-card sa-weak">
+              <span>모름 단어 <b>12</b>개</span>
+              <span class="sa-pill" style="background: var(--coral);">카드</span>
+              <span class="sa-pill" style="background: var(--pink);">퀴즈</span>
+            </div>
+            <div class="sa-cta">▶ 이어서 학습하기</div>
+          </div>
+        </div>
+        <p class="shot-cap">책장으로 보는 학습 진도</p>
+      </div>
+      <div>
+        <div class="shot-frame">
+          <div class="shot-anim" aria-label="단어 카드 스와이프 애니메이션 미리보기">
+            <div class="sa-top">
+              <span class="sa-pill" style="background: #FF9CAB;">N3 2권</span>
+              <span class="sa-count">4/10장, 알아요 3, 모름 1</span>
+            </div>
+            <div class="sa-stage">
+              <div class="sa-word sa-back"></div>
+              <div class="sa-word sa-cardB"><h4 lang="ja">解決</h4><p>해결</p><em lang="ja">かいけつ</em><div class="sa-tint sa-tint-coral">✕ 모름</div></div>
+              <div class="sa-word sa-cardA"><h4 lang="ja">普段</h4><p>평소</p><em lang="ja">ふだん</em><div class="sa-tint sa-tint-mint">✓ 알아요</div></div>
+            </div>
+            <div class="sa-btns">
+              <span class="sa-btn sa-no">✕ 모름</span>
+              <span class="sa-btn sa-ok">✓ 알아요</span>
+            </div>
+          </div>
+        </div>
+        <p class="shot-cap">스와이프 회독 학습</p>
+      </div>
+      <div>
+        <div class="shot-frame">
+          <div class="shot-anim" aria-label="3초 퀴즈 애니메이션 미리보기">
+            <div class="sa-qbar"><i></i></div>
+            <div class="sa-qmeta"><span>7/10</span><span class="sa-pill" style="background: var(--yellow);">3초</span></div>
+            <div class="sa-qword"><small>이 단어의 뜻은?</small><h4 lang="ja">珍しい</h4></div>
+            <div class="sa-opts">
+              <span class="sa-opt">자세하다</span>
+              <span class="sa-opt">허둥대다</span>
+              <span class="sa-opt sa-correct">드물다<b>✓</b></span>
+              <span class="sa-opt">여전하다</span>
+            </div>
+          </div>
+        </div>
+        <p class="shot-cap">모름 단어 3초 퀴즈</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= LIVE DEMO (3초 퀴즈 맛보기) ======================= -->
+<section id="demo" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>다운로드 전에, 직접 해보세요</h2>
+      <p>앱의 시그니처, 3초 룰 퀴즈. 3초 안에 못 고르면 모르는 겁니다.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-timer" id="demoTimer"><i id="demoTimerFill"></i></div>
+      <div class="demo-meta"><span id="demoCount">6문제, 문제당 3초</span><span id="demoTag">JLPT N3 단어</span></div>
+      <div id="demoStage" class="demo-center">
+        <p style="color: var(--body); font-weight: 700; margin: 18px 0 22px;">여섯 단어, 문제당 3초.<br />앱과 똑같은 규칙으로 돌아갑니다.</p>
+        <button class="nb-btn" id="demoStart">퀴즈 시작</button>
+      </div>
+      <p class="demo-note" id="demoNote"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= STATEMENT BAND 2 ======================= -->
+<section class="cinema center" id="closing" aria-label="지금 시작">
+  <div class="cinema-art art-b" aria-hidden="true"></div>
+  <div class="scrim"></div>
+  <div class="cinema-inner">
+    <div class="cinema-copy">
+      <span class="kicker">하루 5분</span>
+      <h2>오늘 외운 한 단어가,<br /><span class="film-hl">합격선을 넘깁니다.</span></h2>
+      <p>지하철에서, 카페에서, 자기 전에. 짧게 자주, 외울 때까지.</p>
+      <div class="cinema-ctas">
+        <a class="nb-btn" href="#pricing">가격 보기</a>
+        <a class="nb-btn secondary" href="#download">출시 소식 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PRICING ======================= -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>필요한 만큼만. 원하면 평생.</h2>
+      <p>1권은 통째로 무료. 그 다음은 연간이나 월간 구독, 또는 평생권 중 하나이고 셋 다 여는 범위는 같습니다.</p>
+    </div>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>무료로 시작</h3>
+        <div class="price">₩0</div>
+        <ul>
+          <li>급수마다 1권 전체 무료, 100단어 10챕터</li>
+          <li>회독, 모름 단어, 3초 퀴즈 전부 체험</li>
+          <li>오늘의 20문제와 급수 테스트 무제한</li>
+          <li>로그인 없음, 광고 없음</li>
+        </ul>
+        <a class="nb-btn" href="#download" style="margin-top: 22px;">App Store 준비 중</a>
+      </div>
+      <div class="price-card hot">
+        <span class="sale-badge">연간 추천, 56% 절약</span>
+        <h3>일팔공 Pro</h3>
+        <div class="price">₩29,000<span style="font-size:0.45em; font-weight:800;"> /년</span></div>
+        <div class="price-note">월 ₩2,417 꼴, 월간 ₩5,500, 평생권 ₩44,000</div>
+        <ul>
+          <li>N5–N1 5개 급수 8,000단어 전 권 전 챕터</li>
+          <li>무제한 회독, 모름 복습, 3초 퀴즈</li>
+          <li>구독은 언제든 해지, 남은 기간은 그대로 이용</li>
+          <li>평생권은 한 번 결제로 영구 소장</li>
+        </ul>
+        <a class="nb-btn secondary" href="#download" style="margin-top: 22px;">App Store 준비 중</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><h2>자주 묻는 질문</h2></div>
+    <div class="faq">
+      <details>
+        <summary>JLPT 공식 앱인가요?</summary>
+        <p>아니요. 일팔공(One80)은 ForgeLab이 독립적으로 개발한 학습 도구로, 일본어능력시험을 주최하는 국제교류기금 및 일본국제교육지원협회와 아무런 제휴나 보증 관계가 없습니다. 시험 이름은 "시험 대비"라는 목적을 설명하기 위해서만 언급합니다. 모든 학습 콘텐츠는 자체 제작이며 실제 기출문제를 포함하지 않습니다.</p>
+      </details>
+      <details>
+        <summary>왜 점수대가 아니라 급수를 고르나요?</summary>
+        <p>JLPT는 토익처럼 하나의 점수로 수준을 매기는 시험이 아니라, N5부터 N1까지 급수마다 따로 응시해 합격·불합격을 받는 시험입니다. 그래서 앱도 목표 급수를 고르면 그 급수의 단어책과 180점 만점 합격선을 기준으로 진도와 예상 득점을 보여 줍니다. 급수는 언제든 바꿀 수 있고 급수별 진도는 따로 저장됩니다.</p>
+      </details>
+      <details>
+        <summary>카드 앞면에 읽기가 없는데요?</summary>
+        <p>일부러 가렸습니다. 漢字読み(한자 읽기) 문제는 한자만 보고 읽기를 떠올려야 하니까요. 앞면에서 읽기와 뜻을 떠올린 뒤 뒤집으면 표기, 읽기, 뜻, TIP, 예문이 한 번에 나옵니다.</p>
+      </details>
+      <details>
+        <summary>로그인이나 회원가입이 필요한가요?</summary>
+        <p>아니요. 계정 없이 바로 시작합니다. 학습 기록은 사용자 본인의 iCloud에 저장되고, 구매는 Apple ID가 처리합니다. 개발자 서버에는 아무것도 저장되지 않습니다.</p>
+      </details>
+      <details>
+        <summary>기기를 바꾸거나 앱을 지웠다 깔면 기록이 사라지나요?</summary>
+        <p>사라지지 않습니다. 진도, 회독 수, 마스터 단어, 스트릭이 iCloud로 자동 백업되어 같은 Apple 계정이면 그대로 복원됩니다. 이용권도 "구매 복원" 한 번이면 됩니다.</p>
+      </details>
+      <details>
+        <summary>무료로는 어디까지 쓸 수 있나요?</summary>
+        <p>급수마다 <strong>1권 전체(10챕터, 100단어)</strong>를 무료로 끝까지 학습할 수 있습니다. 회독, 모름 단어 복습, 3초 퀴즈, 오늘의 20문제, 급수 테스트까지 모든 기능이 제한 없이 동작합니다. 2권부터는 이용권이 필요하며 연간 ₩29,000, 월간 ₩5,500 구독 또는 평생권 ₩44,000 중 하나를 고르면 됩니다. 여는 범위는 셋 다 같습니다.</p>
+      </details>
+      <details>
+        <summary>구독인가요? 해지하면 어떻게 되나요?</summary>
+        <p>연간과 월간은 자동 갱신 구독이고, 평생권은 한 번만 결제합니다. 구독은 iOS 설정에서 Apple 계정, 구독 순서로 들어가 언제든 해지할 수 있고, 해지해도 이미 결제한 기간이 끝날 때까지는 그대로 이용됩니다. 무료 체험은 따로 없지만 1권 100단어를 끝까지 무료로 써 보고 결정하면 됩니다.</p>
+      </details>
+      <details>
+        <summary>환불은 어떻게 하나요?</summary>
+        <p>Apple App Store 환불 정책을 따릅니다. <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>에서 요청할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>오프라인에서도 쓸 수 있나요?</summary>
+        <p>네. 콘텐츠는 기기에 캐시되므로 한 번 다운로드된 이후에는 오프라인에서도 학습할 수 있습니다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <span style="font-weight: 900;">One80 일팔공</span>
+    <a href="privacy.html">개인정보 처리방침</a>
+    <a href="terms.html">이용약관</a>
+    <a class="contact-btn" href="mailto:forgelab.aitech@gmail.com?subject=%5BOne80%5D%20%EB%AC%B8%EC%9D%98">✉️ 문의하기</a>
+    <span style="margin-left:auto;">© 2026 ForgeLab</span>
+    <span class="biz">ForgeLab, 대표 Jason Lee</span>
+    <span class="ets">일본어능력시험(JLPT)은 국제교류기금과 일본국제교육지원협회가 주최하는 시험입니다. 본 앱과 사이트는 시험 대비라는 목적을 설명하기 위해서만 시험 이름을 언급하며, 두 기관과 무관하고 제휴나 보증, 승인을 받지 않았습니다. The Japanese-Language Proficiency Test (JLPT) is administered by the Japan Foundation and Japan Educational Exchanges and Services; this product is not affiliated with or endorsed by either organization.</span>
+  </div>
+</footer>
+
+<script>
+/* ---------- Scroll spy: highlight the nav link of the section in view ---------- */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+
+  var targets = Object.keys(byId)
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      links.forEach(function (a) { a.classList.remove('active'); });
+      var link = byId[entry.target.id];
+      if (link) link.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  targets.forEach(function (t) { observer.observe(t); });
+})();
+
+/* ---------- Scroll reveals: tag groups, animate them in on enter ---------- */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  // Assign reveal variant + stagger index without touching the HTML.
+  function tag(sel, variant, perRow) {
+    var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+    els.forEach(function (el, i) {
+      el.classList.add('reveal');
+      var v = typeof variant === 'function' ? variant(i) : variant;
+      el.classList.add(v);
+      el.style.setProperty('--i', perRow ? (i % perRow) : i);
+    });
+    return els;
+  }
+
+  var groups = [].concat(
+    tag('.sec-head', 'r-up'),
+    tag('.step', 'r-up', 4),
+    // features deal in from alternating sides, like a hand of cards
+    tag('.feature', function (i) { return i % 2 ? 'r-right' : 'r-left'; }, 3),
+    tag('.topic', 'r-up', 5),
+    tag('.level', 'r-up', 4),
+    tag('.shots > div', 'r-up', 3),
+    tag('.price-card', 'r-up', 2),
+    tag('.faq details', 'r-up', 1)
+  );
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+
+  groups.forEach(function (el) { io.observe(el); });
+})();
+
+/* ---------- Play the film only while it is on screen ---------- */
+(function () {
+  var vids = Array.prototype.slice.call(document.querySelectorAll('.cinema video, .reel video'));
+  if (!vids.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { vids.forEach(function (v) { v.pause(); v.removeAttribute('autoplay'); }); return; }
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else { v.pause(); }
+    });
+  }, { threshold: 0.2 });
+  vids.forEach(function (v) { io.observe(v); });
+})();
+
+/* ---------- Signature: scroll-linked card fan ---------- */
+(function () {
+  var section = document.getElementById('story');
+  var deck = document.getElementById('fanDeck');
+  if (!section || !deck) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var rect = section.getBoundingClientRect();
+    var vh = window.innerHeight;
+    // 0 while the sticky stage first pins, 1 as the track scrolls past.
+    var travel = rect.height - vh;
+    var p = travel > 0 ? (-rect.top) / travel : 0;
+    p = Math.max(0, Math.min(1, p));
+    // ease so the spread feels like it "settles" open
+    var eased = 1 - Math.pow(1 - p, 2);
+    deck.style.setProperty('--p', eased.toFixed(4));
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+
+/* ---------- 3초 퀴즈 맛보기 (앱의 WordQuizView와 같은 규칙) ---------- */
+(function () {
+  var QUESTIONS = [
+    { w: '影響',   o: ['영향', '해결', '비교', '협력'], a: 0 },
+    { w: '締め切り', o: ['담당', '마감', '모집', '확인'], a: 1 },
+    { w: '慌てる', o: ['망설이다', '줄다', '허둥대다', '늘다'], a: 2 },
+    { w: '普段',   o: ['효과', '평소', '기대', '상태'], a: 1 },
+    { w: '珍しい', o: ['자세하다', '드물다', '새롭다', '비싸다'], a: 1 },
+    { w: '努力',   o: ['노력', '영향', '비교', '협력'], a: 0 }
+  ];
+  var LIMIT = 3000, REVEAL = 900;
+
+  var stage = document.getElementById('demoStage');
+  var timer = document.getElementById('demoTimer');
+  var fill = document.getElementById('demoTimerFill');
+  var count = document.getElementById('demoCount');
+  var note = document.getElementById('demoNote');
+  var idx = 0, score = 0, timers = [];
+
+  document.getElementById('demoStart').addEventListener('click', start);
+
+  function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+
+  function start() {
+    idx = 0; score = 0;
+    note.textContent = '';
+    show();
+  }
+
+  function resetBar() {
+    timer.classList.remove('warn', 'hot');
+    fill.style.transition = 'none';
+    fill.style.width = '100%';
+    void fill.offsetWidth; /* reflow, restarts the transition */
+    fill.style.transition = 'width ' + LIMIT + 'ms linear';
+    fill.style.width = '0%';
+  }
+
+  function show() {
+    clearTimers();
+    var q = QUESTIONS[idx];
+    count.textContent = (idx + 1) + ' / ' + QUESTIONS.length;
+    note.textContent = '';
+    stage.classList.remove('demo-center');
+    stage.innerHTML = '<div class="demo-word">' + q.w + '</div>' +
+      q.o.map(function (opt, i) {
+        return '<button class="demo-opt" data-i="' + i + '">' + opt + '</button>';
+      }).join('');
+    stage.querySelectorAll('.demo-opt').forEach(function (btn) {
+      btn.addEventListener('click', function () { answer(parseInt(btn.dataset.i, 10)); });
+    });
+    resetBar();
+    timers.push(setTimeout(function () { timer.classList.add('warn'); }, LIMIT / 3));
+    timers.push(setTimeout(function () { timer.classList.add('hot'); }, LIMIT * 2 / 3));
+    timers.push(setTimeout(timeUp, LIMIT));
+  }
+
+  function freezeBar() {
+    var w = getComputedStyle(fill).width;
+    fill.style.transition = 'none';
+    fill.style.width = w;
+  }
+
+  function reveal(picked) {
+    clearTimers();
+    freezeBar();
+    var q = QUESTIONS[idx];
+    stage.querySelectorAll('.demo-opt').forEach(function (btn, i) {
+      btn.disabled = true;
+      if (i === q.a) btn.classList.add('correct');
+      else if (i === picked) btn.classList.add('wrong');
+    });
+  }
+
+  function answer(i) {
+    var q = QUESTIONS[idx];
+    reveal(i);
+    if (i === q.a) { score++; note.textContent = '정답! 앱에서는 "알아요"로 기록됩니다.'; }
+    else { note.textContent = '오답. 앱에서는 모름 단어로 남아 다시 만나게 됩니다.'; }
+    timers.push(setTimeout(next, REVEAL));
+  }
+
+  function timeUp() {
+    reveal(-1);
+    note.textContent = '⏰ 시간 초과! 3초 안에 못 고르면 모르는 겁니다.';
+    timers.push(setTimeout(next, REVEAL + 200));
+  }
+
+  function next() {
+    idx++;
+    if (idx < QUESTIONS.length) { show(); return; }
+    finish();
+  }
+
+  function finish() {
+    clearTimers();
+    fill.style.transition = 'none';
+    fill.style.width = '100%';
+    timer.classList.remove('warn', 'hot');
+    count.textContent = '완료';
+    stage.classList.add('demo-center');
+    var msg = score === QUESTIONS.length
+      ? '완벽해요. 고급 레벨에서 기다릴게요.'
+      : '틀린 ' + (QUESTIONS.length - score) + '개, 앱에서는 외울 때까지 다시 만납니다.';
+    stage.innerHTML =
+      '<div class="demo-score">' + score + ' / ' + QUESTIONS.length + '</div>' +
+      '<p style="color: var(--body); font-weight: 700; margin-bottom: 20px;">' + msg + '</p>' +
+      '<div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">' +
+        '<button class="nb-btn" id="demoRetry">다시 도전</button>' +
+        '<a class="nb-btn mint" href="#levels">급수 보기</a>' +
+      '</div>';
+    note.textContent = '';
+    document.getElementById('demoRetry').addEventListener('click', start);
+  }
+})();
+</script>
+
+</body>
+</html>

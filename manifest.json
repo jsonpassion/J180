@@ -1,0 +1,130 @@
+{
+  "version": "c-61484071fc77",
+  "generated_at": "2026-09-13T14:35:53Z",
+  "schema_version": 1,
+  "track": "jlpt-180",
+  "profile": {
+    "target_score": 180,
+    "daily_study_minutes": 5,
+    "voca_review_rule": "hoedok-rounds",
+    "free_chapters": 10
+  },
+  "score_band_policy": {
+    "version": "3.0",
+    "rule": "five-level",
+    "bands": [
+      {
+        "id": "jlpt-n5",
+        "label": "N5",
+        "min_score": 0,
+        "max_score": 180,
+        "order": 1
+      },
+      {
+        "id": "jlpt-n4",
+        "label": "N4",
+        "min_score": 0,
+        "max_score": 180,
+        "order": 2
+      },
+      {
+        "id": "jlpt-n3",
+        "label": "N3",
+        "min_score": 0,
+        "max_score": 180,
+        "order": 3
+      },
+      {
+        "id": "jlpt-n2",
+        "label": "N2",
+        "min_score": 0,
+        "max_score": 180,
+        "order": 4
+      },
+      {
+        "id": "jlpt-n1",
+        "label": "N1",
+        "min_score": 0,
+        "max_score": 180,
+        "order": 5
+      }
+    ]
+  },
+  "entries": [
+    {
+      "id": "voca-n1-u001",
+      "type": "voca",
+      "level": 5,
+      "path": "content/voca/jlpt-n1/unit-001.md",
+      "checksum_sha256": "68d79657156d8b529b628242bece2a3cc3eb11fc2eae89a2dec2d7e4f128f23f",
+      "updated_at": "2026-09-13T00:00:00Z",
+      "score_band_id": "jlpt-n1",
+      "score_min": 0,
+      "score_max": 180,
+      "unit_title": null,
+      "unit_title_ko": null,
+      "unit_symbol": null,
+      "sequence": 1
+    },
+    {
+      "id": "voca-n2-u001",
+      "type": "voca",
+      "level": 4,
+      "path": "content/voca/jlpt-n2/unit-001.md",
+      "checksum_sha256": "c03887221217557034270d825b03b9d955c0f6c819906aa18ac6ae4143ec5f1c",
+      "updated_at": "2026-09-13T00:00:00Z",
+      "score_band_id": "jlpt-n2",
+      "score_min": 0,
+      "score_max": 180,
+      "unit_title": null,
+      "unit_title_ko": null,
+      "unit_symbol": null,
+      "sequence": 1
+    },
+    {
+      "id": "voca-n3-u001",
+      "type": "voca",
+      "level": 3,
+      "path": "content/voca/jlpt-n3/unit-001.md",
+      "checksum_sha256": "a83ac1843a5d5719452af5301882a31e41a50c8c828fa49daf205b6a69670563",
+      "updated_at": "2026-09-13T00:00:00Z",
+      "score_band_id": "jlpt-n3",
+      "score_min": 0,
+      "score_max": 180,
+      "unit_title": null,
+      "unit_title_ko": null,
+      "unit_symbol": null,
+      "sequence": 1
+    },
+    {
+      "id": "voca-n4-u001",
+      "type": "voca",
+      "level": 2,
+      "path": "content/voca/jlpt-n4/unit-001.md",
+      "checksum_sha256": "d08a84806c954803931225669cc26e60f15da4bae21402ed3bbee4d6397dc138",
+      "updated_at": "2026-09-13T00:00:00Z",
+      "score_band_id": "jlpt-n4",
+      "score_min": 0,
+      "score_max": 180,
+      "unit_title": null,
+      "unit_title_ko": null,
+      "unit_symbol": null,
+      "sequence": 1
+    },
+    {
+      "id": "voca-n5-u001",
+      "type": "voca",
+      "level": 1,
+      "path": "content/voca/jlpt-n5/unit-001.md",
+      "checksum_sha256": "3b1912112ba7b62f0e6c1c3a5a0ca7aaae4246eb85f00650f3ddac0794058d9d",
+      "updated_at": "2026-09-13T00:00:00Z",
+      "score_band_id": "jlpt-n5",
+      "score_min": 0,
+      "score_max": 180,
+      "unit_title": null,
+      "unit_title_ko": null,
+      "unit_symbol": null,
+      "sequence": 1
+    }
+  ]
+}
