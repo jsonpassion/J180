@@ -1,0 +1,263 @@
+[
+ {
+  "band": "jlpt-n5",
+  "units": [
+   {
+    "unit": 6,
+    "need": 2,
+    "theme": "교통과 장소 — 역·길·방향"
+   },
+   {
+    "unit": 8,
+    "need": 36,
+    "theme": "기본 동사와 형용사 — 가다·오다·크다·작다"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n5-u006.md"
+ },
+ {
+  "band": "jlpt-n4",
+  "units": [
+   {
+    "unit": 6,
+    "need": 36,
+    "theme": "생활 규칙 — 허가·금지·부탁"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n4-u006.md"
+ },
+ {
+  "band": "jlpt-n3",
+  "units": [
+   {
+    "unit": 2,
+    "need": 4,
+    "theme": "회사 생활 — 회의·보고"
+   },
+   {
+    "unit": 5,
+    "need": 35,
+    "theme": "건강과 의료"
+   },
+   {
+    "unit": 7,
+    "need": 4,
+    "theme": "교통과 이동"
+   },
+   {
+    "unit": 11,
+    "need": 17,
+    "theme": "감정의 뉘앙스 — 慌てる·迷う"
+   },
+   {
+    "unit": 14,
+    "need": 18,
+    "theme": "2자 한자어 명사 기본"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n3-u002.md"
+ },
+ {
+  "band": "jlpt-n3",
+  "units": [
+   {
+    "unit": 18,
+    "need": 1,
+    "theme": "경어 기초 — 존경·겸양 동사"
+   },
+   {
+    "unit": 20,
+    "need": 10,
+    "theme": "문맥 규정 빈출 — 헷갈리는 유의어"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n3-u018.md"
+ },
+ {
+  "band": "jlpt-n2",
+  "units": [
+   {
+    "unit": 2,
+    "need": 9,
+    "theme": "비즈니스 교섭"
+   },
+   {
+    "unit": 6,
+    "need": 43,
+    "theme": "의료와 복지"
+   },
+   {
+    "unit": 7,
+    "need": 32,
+    "theme": "교육 제도"
+   },
+   {
+    "unit": 9,
+    "need": 30,
+    "theme": "환경과 에너지"
+   },
+   {
+    "unit": 10,
+    "need": 24,
+    "theme": "법과 계약"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n2-u002.md"
+ },
+ {
+  "band": "jlpt-n2",
+  "units": [
+   {
+    "unit": 11,
+    "need": 43,
+    "theme": "심리와 감정 표현"
+   },
+   {
+    "unit": 12,
+    "need": 12,
+    "theme": "평가와 비판 — 著しい·曖昧"
+   },
+   {
+    "unit": 13,
+    "need": 10,
+    "theme": "복합동사 심화"
+   },
+   {
+    "unit": 14,
+    "need": 26,
+    "theme": "する동사 한자어"
+   },
+   {
+    "unit": 16,
+    "need": 15,
+    "theme": "부사 — 次第に·一向に"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n2-u011.md"
+ },
+ {
+  "band": "jlpt-n2",
+  "units": [
+   {
+    "unit": 18,
+    "need": 28,
+    "theme": "의성어·의태어 심화"
+   },
+   {
+    "unit": 19,
+    "need": 16,
+    "theme": "경어 — 비즈니스 메일"
+   },
+   {
+    "unit": 20,
+    "need": 23,
+    "theme": "言い換え 빈출 유의어"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n2-u018.md"
+ },
+ {
+  "band": "jlpt-n1",
+  "units": [
+   {
+    "unit": 2,
+    "need": 16,
+    "theme": "정치와 외교"
+   },
+   {
+    "unit": 3,
+    "need": 9,
+    "theme": "경제·금융 심화"
+   },
+   {
+    "unit": 4,
+    "need": 6,
+    "theme": "법률과 재판"
+   },
+   {
+    "unit": 5,
+    "need": 15,
+    "theme": "사회 제도"
+   },
+   {
+    "unit": 6,
+    "need": 25,
+    "theme": "과학 연구"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n1-u002.md"
+ },
+ {
+  "band": "jlpt-n1",
+  "units": [
+   {
+    "unit": 7,
+    "need": 10,
+    "theme": "의학과 생명"
+   },
+   {
+    "unit": 11,
+    "need": 26,
+    "theme": "보도문 표현"
+   },
+   {
+    "unit": 12,
+    "need": 4,
+    "theme": "고급 감정·심리"
+   },
+   {
+    "unit": 14,
+    "need": 4,
+    "theme": "상태와 변화 — 兆し·均衡"
+   },
+   {
+    "unit": 16,
+    "need": 12,
+    "theme": "고급 형용사·형용동사"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n1-u007.md"
+ },
+ {
+  "band": "jlpt-n1",
+  "units": [
+   {
+    "unit": 17,
+    "need": 20,
+    "theme": "고급 부사 — 辛うじて·概ね"
+   },
+   {
+    "unit": 21,
+    "need": 13,
+    "theme": "고급 가타카나 외래어"
+   },
+   {
+    "unit": 22,
+    "need": 24,
+    "theme": "문어·격식 표현"
+   },
+   {
+    "unit": 23,
+    "need": 60,
+    "theme": "고급 의성어·의태어"
+   },
+   {
+    "unit": 24,
+    "need": 17,
+    "theme": "헷갈리는 동음이의 한자어"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n1-u017.md"
+ },
+ {
+  "band": "jlpt-n1",
+  "units": [
+   {
+    "unit": 25,
+    "need": 28,
+    "theme": "용법 빈출 — 쓰임 구별"
+   }
+  ],
+  "target": "plan/wordlists/topup/jlpt-n1-u025.md"
+ }
+]
