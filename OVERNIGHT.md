@@ -6,6 +6,8 @@
 
 규격 원본: `content.config.json`(밴드·권 수·언어) · `plan/curriculum.json`(권별 테마) · `prompts/wordlist.md` · `prompts/unit.md`.
 
+> **한 번에 돌리려면 [CONTENT_PROMPT.md](CONTENT_PROMPT.md)의 붙여넣기 프롬프트를 쓴다** — 이 앱의 구조(레벨 방식·권 수·카드 앞뒷면·언어)와 품질 기준이 들어 있다.
+
 ## 0. 준비
 
 ```bash
