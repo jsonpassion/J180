@@ -8,6 +8,9 @@
   python3 tools/plan.py briefs           stage 2 prompts → plan/briefs/<band>/unit-NNN.md
   python3 tools/plan.py todo             units whose content file is missing or failing
   python3 tools/plan.py clear-dummy      delete dummy seed units before the real build
+
+Per-language tracks (content.config.json `variants`): the word plan is shared;
+`briefs`, `todo` and `status` take `--lang <code>` and write plan/briefs/<lang>/…
 """
 
 import json
@@ -16,8 +19,9 @@ import subprocess
 import sys
 from datetime import date
 
-from kit import (BANDS, CONFIG, CONTENT_DIR, PLAN_DIR, ROOT, WORDS_PER_UNIT, curriculum, norm,
-                 parse_frontmatter, plan_unit_path, read_plan_unit, unit_id, word_key)
+from kit import (BANDS, CONFIG, CONTENT_DIR, LANG_ARGS, PLAN_DIR, ROOT, UNIT_PROMPT, VARIANT, WORDS_PER_UNIT,
+                 curriculum, norm, parse_frontmatter, plan_unit_path, read_plan_unit, unit_id,
+                 variant_content_dirs, word_key)
 
 PROMPTS = ROOT / "prompts"
 CANDIDATE_SLACK = 1.2   # stage 1 asks for 20% more than it keeps
@@ -25,6 +29,19 @@ CANDIDATE_SLACK = 1.2   # stage 1 asks for 20% more than it keeps
 
 def content_path(band_id, unit):
     return CONTENT_DIR / band_id / f"unit-{unit:03d}.md"
+
+
+def written_in_any_language(band_id, unit):
+    """A book written in one language freezes its words for every language."""
+    for base in variant_content_dirs().values():
+        path = base / band_id / f"unit-{unit:03d}.md"
+        if path.exists() and not is_dummy(path):
+            return True
+    return False
+
+
+def brief_dir():
+    return PLAN_DIR / "briefs" / VARIANT if VARIANT else PLAN_DIR / "briefs"
 
 
 def is_dummy(path):
@@ -101,8 +118,7 @@ def cmd_merge():
         for unit in range(1, band["units"] + 1):
             tag = f"{band['id']}/{unit:03d}"
             existing = read_plan_unit(band["id"], unit)
-            written = content_path(band["id"], unit)
-            if existing and written.exists() and not is_dummy(written):
+            if existing and written_in_any_language(band["id"], unit):
                 for w, r in existing[1]:           # frozen: its words are in the book already
                     taken.setdefault(word_key(w, r), tag)
                 report.append((tag, len(existing[1]), "frozen"))
@@ -133,7 +149,7 @@ def cmd_merge():
 
 
 def cmd_briefs():
-    template = (PROMPTS / "unit.md").read_text(encoding="utf-8")
+    template = (PROMPTS / UNIT_PROMPT).read_text(encoding="utf-8")
     n = 0
     for band in BANDS:
         for unit in range(1, band["units"] + 1):
@@ -144,18 +160,21 @@ def cmd_briefs():
             headwords = "\n".join(f"{i}. {w}" + (f" | {r}" if r else "") for i, (w, r) in enumerate(words, 1))
             values = band_values(band) | {
                 "UNIT": f"{unit:03d}", "UNIT_ID": unit_id(band["id"], unit), "THEME": theme,
-                "HEADWORDS": headwords, "TARGET_PATH": f"content/voca/{band['id']}/unit-{unit:03d}.md",
+                "HEADWORDS": headwords,
+                "TARGET_PATH": content_path(band["id"], unit).relative_to(ROOT).as_posix(),
+                "LANG_FLAG": " ".join(LANG_ARGS),
             }
-            path = PLAN_DIR / "briefs" / band["id"] / f"unit-{unit:03d}.md"
+            path = brief_dir() / band["id"] / f"unit-{unit:03d}.md"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(render(template, values), encoding="utf-8"); n += 1
-    print(f"wrote {n} unit briefs under plan/briefs/")
+    print(f"wrote {n} unit briefs under {brief_dir().relative_to(ROOT)}/")
 
 
 def failing_units():
-    out = subprocess.run([sys.executable, str(ROOT / "tools" / "validate_content.py"), "--quiet"],
+    out = subprocess.run([sys.executable, str(ROOT / "tools" / "validate_content.py"), "--quiet", *LANG_ARGS],
                          capture_output=True, text=True).stdout
-    return {m.group(1) + "/" + m.group(2) for m in re.finditer(r"content/voca/([^/]+)/unit-(\d{3})\.md", out)}
+    rel = re.escape(CONTENT_DIR.relative_to(ROOT).as_posix())
+    return {m.group(1) + "/" + m.group(2) for m in re.finditer(rel + r"/([^/]+)/unit-(\d{3})\.md", out)}
 
 
 def cmd_todo():
@@ -166,7 +185,7 @@ def cmd_todo():
             tag = f"{band['id']}/{unit:03d}"
             path = content_path(band["id"], unit)
             if not path.exists() or is_dummy(path) or tag in failing:
-                todo.append(f"plan/briefs/{tag.replace('/', '/unit-')}.md")
+                todo.append((brief_dir() / band["id"] / f"unit-{unit:03d}.md").relative_to(ROOT).as_posix())
     print("\n".join(todo) if todo else "nothing to do — every planned unit is written and valid")
     return 0
 
@@ -181,7 +200,8 @@ def cmd_status():
 
 
 def cmd_clear_dummy():
-    removed = [p for p in CONTENT_DIR.rglob("unit-*.md") if is_dummy(p)]
+    removed = [p for base in variant_content_dirs().values() if base.exists()
+               for p in base.rglob("unit-*.md") if is_dummy(p)]
     for p in removed:
         p.unlink()
     print(f"removed {len(removed)} dummy units")

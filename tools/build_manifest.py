@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Generate manifest.json from content/voca/<band>/unit-NNN.md.
+"""Generate manifest.json from content/voca/<band>/unit-NNN.md
+(per-language tracks: manifest.<lang>.json from content/<lang>/voca, pick with --lang).
 
 SHA-256 per file (the app re-downloads on change) and a content-hash version,
 so the manifest changes exactly when a word file does.
 
-Usage: python3 tools/build_manifest.py [--check]
+Usage: python3 tools/build_manifest.py [--lang <code>] [--check]
 """
 
 import hashlib
@@ -13,9 +14,7 @@ import re
 import sys
 from datetime import datetime, timezone
 
-from kit import BANDS, CONFIG, ROOT, parse_frontmatter, unit_files
-
-MANIFEST_PATH = ROOT / "manifest.json"
+from kit import BANDS, CONFIG, MANIFEST_PATH, ROOT, VARIANT, parse_frontmatter, unit_files
 
 
 def entries():
@@ -49,6 +48,7 @@ def build():
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "schema_version": 1,
         "track": CONFIG["track"],
+        **({"language": VARIANT} if VARIANT else {}),
         "profile": {"target_score": CONFIG["target_score"], "daily_study_minutes": 5,
                     "voca_review_rule": "hoedok-rounds", "free_chapters": CONFIG.get("free_chapters", 10)},
         "score_band_policy": {"version": "3.0", "rule": CONFIG.get("band_rule", "four-tier"), "bands": bands},
@@ -61,10 +61,11 @@ def main() -> int:
     if "--check" in sys.argv:
         current = json.loads(MANIFEST_PATH.read_text()) if MANIFEST_PATH.exists() else {}
         ok = current.get("version") == manifest["version"]
-        print("manifest.json is up to date" if ok else "manifest.json is stale — run tools/build_manifest.py")
+        name = MANIFEST_PATH.name
+        print(f"{name} is up to date" if ok else f"{name} is stale — run tools/build_manifest.py")
         return 0 if ok else 1
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-    print(f"Wrote manifest.json — version {manifest['version']}, {len(manifest['entries'])} entries")
+    print(f"Wrote {MANIFEST_PATH.name} — version {manifest['version']}, {len(manifest['entries'])} entries")
     return 0
 
 

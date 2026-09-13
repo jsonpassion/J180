@@ -5,14 +5,52 @@ content.config.json, plan/curriculum.json and the prompt rules differ.
 """
 
 import json
+import os
 import re
+import sys
 import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = json.loads((ROOT / "content.config.json").read_text(encoding="utf-8"))
-CONTENT_DIR = ROOT / "content" / "voca"
 PLAN_DIR = ROOT / "plan"
+
+# ── language variants ──────────────────────────────────────────────────
+# A track may ship the same books in several meaning languages (HSK: vi + ko).
+# Headwords, order and unit ids are shared (so card ids and progress survive a
+# language switch); meanings, tips, translations, file tree and manifest differ.
+# Pick one with `--lang <code>` or KIT_LANG; without `variants` nothing changes.
+VARIANTS = CONFIG.get("variants") or {}
+
+
+def _pick_variant():
+    if not VARIANTS:
+        return None
+    lang = os.environ.get("KIT_LANG")
+    if "--lang" in sys.argv:
+        i = sys.argv.index("--lang")
+        lang = sys.argv[i + 1]
+        del sys.argv[i:i + 2]
+    lang = lang or CONFIG.get("default_variant") or next(iter(VARIANTS))
+    if lang not in VARIANTS:
+        sys.exit(f"unknown --lang '{lang}' (variants: {', '.join(VARIANTS)})")
+    return lang
+
+
+VARIANT = _pick_variant()
+_V = VARIANTS.get(VARIANT, {})
+LANGUAGE = CONFIG["language"] | _V.get("language", {})
+CONTENT_DIR = ROOT / _V.get("content_dir", "content/voca")
+MANIFEST_PATH = ROOT / _V.get("manifest", "manifest.json")
+UNIT_PROMPT = _V.get("unit_prompt", "unit.md")
+LANG_ARGS = ["--lang", VARIANT] if VARIANT else []
+
+
+def variant_content_dirs():
+    """Every variant's content dir (just CONTENT_DIR for single-language tracks)."""
+    if not VARIANTS:
+        return {None: CONTENT_DIR}
+    return {k: ROOT / v.get("content_dir", "content/voca") for k, v in VARIANTS.items()}
 WORDS_PER_UNIT = CONFIG.get("words_per_unit", 100)
 CHAPTER_SIZE = 10
 
@@ -32,7 +70,7 @@ READING_RULES = {
     "romanization": (re.compile(r"^[A-Za-z' \-]+$"), "Revised Romanization, e.g. hakgyo"),
 }
 
-SCRIPT_OF = {"en": LATIN, "ko": HANGUL, "ja": re.compile(r"[぀-ヿ㐀-鿿々]"), "zh": HAN}
+SCRIPT_OF = {"en": LATIN, "vi": LATIN, "ko": HANGUL, "ja": re.compile(r"[぀-ヿ㐀-鿿々]"), "zh": HAN}
 
 
 def band_short(band_id: str) -> str:
@@ -56,7 +94,7 @@ def word_key(word: str, reading: str = "") -> str:
     w = norm(word)
     if LATIN.search(w) and not (HAN.search(w) or KANA.search(w) or HANGUL.search(w)):
         w = w.lower()
-    if CONFIG["language"].get("dedupe_with_reading") and reading:
+    if LANGUAGE.get("dedupe_with_reading") and reading:
         return f"{w}|{norm(reading)}"
     return w
 

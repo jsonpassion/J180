@@ -9,22 +9,23 @@ Errors (must be 0 before publishing):
 - headword, meaning and translation are written in the right script
 - no duplicate headword anywhere in the track (across all bands)
 - when plan/units/<band>/unit-NNN.txt exists, the file holds exactly those words
+- per-language tracks: the same book in every language lists the same headwords in the same order
 
 Warnings: long tips, examples that don't show the headword, short examples.
 
-Usage: python3 tools/validate_content.py [--quiet] [--unit <band>/<NNN>]
+Usage: python3 tools/validate_content.py [--lang <code>] [--quiet] [--unit <band>/<NNN>]
 """
 
 import re
 import sys
 
-from kit import (BAND_BY_ID, CONFIG, READING_RULES, ROOT, SCRIPT_OF, WORDS_PER_UNIT,
-                 band_short, norm, parse_frontmatter, read_plan_unit, unit_files, unit_id,
-                 word_key, word_lines)
+from kit import (BAND_BY_ID, CONTENT_DIR, LANGUAGE, READING_RULES, ROOT, SCRIPT_OF, VARIANT,
+                 WORDS_PER_UNIT, norm, parse_frontmatter, read_plan_unit, unit_files, unit_id,
+                 variant_content_dirs, word_key, word_lines)
 
 REQUIRED_FM = ["id", "type", "level", "difficulty", "tags", "source", "version", "updated_at",
                "score_band_id", "score_min", "score_max"]
-LANG = CONFIG["language"]
+LANG = LANGUAGE
 READING = LANG["reading"]
 TIP_MAX = LANG.get("tip_max_chars", 45)
 
@@ -46,6 +47,11 @@ def stem_present(word: str, reading: str, example: str) -> bool:
     return w in ex  # zh: no inflection
 
 
+def headword_order(path):
+    _, body = parse_frontmatter(path.read_text(encoding="utf-8"))
+    return [word_key(p[0], p[2] if len(p) > 2 else "") for _, p in word_lines(body)]
+
+
 def main() -> int:
     only = None
     if "--unit" in sys.argv:
@@ -56,7 +62,7 @@ def main() -> int:
     total = 0
     files = unit_files()
     if not files:
-        print("No unit files under content/voca/")
+        print(f"No unit files under {CONTENT_DIR.relative_to(ROOT)}/")
         return 0
 
     for path in files:
@@ -126,6 +132,11 @@ def main() -> int:
         total += count
         if not check:
             continue
+        for lang, base in variant_content_dirs().items():
+            sibling = base / band_id / path.name
+            if lang != VARIANT and sibling.exists() and headword_order(sibling) != headword_order(path):
+                errors.append(f"{rel}: headwords differ from the {lang} edition "
+                              f"({sibling.relative_to(ROOT).as_posix()}) — same words, same order")
         if dummy:
             notes.append(f"{rel}: dummy unit ({count} words) — replace before launch")
             if count % 10:
