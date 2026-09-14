@@ -72,9 +72,11 @@
   <!-- CSS-drawn app preview (출시 스크린샷 교체 전 임시 목업) -->
   <div class="hero-visual" data-reveal="zoom">
   <div class="glow" aria-hidden="true"></div>
-  <div class="reel reel-slot" aria-hidden="true">
-    <!-- 온보딩 영상 자리: assets/video/onboarding-loop.mp4 가 생기면 <video> 로 교체 -->
-    <div class="slot-card"><b>180</b><span class="slot-eyes"><i></i><i></i></span></div>
+  <div class="reel" aria-hidden="false">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/onboarding-loop.jpg"
+           aria-label="어제 외운 단어가 떠오르지 않아 막막한 출근길, 카드로 회독하는 모습, 다시 기억해 내고 미소 짓는 순간을 이어 붙인 영상">
+      <source src="assets/video/onboarding-loop.mp4" type="video/mp4" />
+    </video>
   </div>
   <div class="phone" aria-hidden="true">
     <div class="notch"></div>
@@ -103,8 +105,9 @@
 
 <!-- ======================= STATEMENT BAND 1 ======================= -->
 <section class="cinema" id="film" aria-label="회독 브랜드 필름">
-  <!-- 가로 필름 자리: assets/video/hero-fan.mp4 가 생기면 <video> 로 교체 -->
-  <div class="cinema-art" aria-hidden="true"></div>
+  <video autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-fan.jpg">
+    <source src="assets/video/hero-fan.mp4" type="video/mp4" />
+  </video>
   <div class="scrim"></div>
   <div class="cinema-inner">
     <div class="cinema-copy">
