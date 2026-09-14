@@ -66,7 +66,8 @@ LATIN = re.compile(r"[A-Za-z]")
 READING_RULES = {
     "ipa": (re.compile(r"^/[^/]+/$"), "IPA between slashes, e.g. /ˈmɒmənt/"),
     "kana": (re.compile(r"^[぀-ヿー・\s]+$"), "hiragana/katakana only, e.g. たべる"),
-    "pinyin": (re.compile(r"^[A-Za-züÜāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ' \-]+$"), "pinyin with tone marks, e.g. xuéxí"),
+    # capitals for proper nouns (Ānlǐhuì), em dash for two-part sayings (歇后语)
+    "pinyin": (re.compile(r"^[A-Za-züÜāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ' \-—]+$"), "pinyin with tone marks, e.g. xuéxí"),
     "romanization": (re.compile(r"^[A-Za-z' \-]+$"), "Revised Romanization, e.g. hakgyo"),
 }
 
@@ -95,7 +96,8 @@ def word_key(word: str, reading: str = "") -> str:
     if LATIN.search(w) and not (HAN.search(w) or KANA.search(w) or HANGUL.search(w)):
         w = w.lower()
     if LANGUAGE.get("dedupe_with_reading") and reading:
-        return f"{w}|{norm(reading)}"
+        # spacing and apostrophes in a reading never make a different word (kāi chē = kāichē)
+        return f"{w}|{re.sub(r"[\s'’\-—]", "", norm(reading)).lower()}"
     return w
 
 
