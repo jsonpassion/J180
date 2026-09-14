@@ -18,7 +18,47 @@
       ],
       "default": true,
       "officialURL": "https://www.jlpt.or.kr",
-      "sessions": []
+      "sessions": [
+        {
+          "id": "2026-12",
+          "title": {
+            "ko": "2026년 제2회",
+            "en": "December 2026",
+            "ja": "2026年第2回",
+            "zh": "2026年第2次"
+          },
+          "examDate": "2026-12-06",
+          "registration": [
+            {
+              "label": {
+                "ko": "접수",
+                "en": "Registration",
+                "ja": "受付",
+                "zh": "报名"
+              },
+              "start": "2026-09-01",
+              "end": "2026-09-20"
+            },
+            {
+              "label": {
+                "ko": "추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-09-28",
+              "end": "2026-10-04"
+            }
+          ],
+          "note": {
+            "ko": "서울·제주 권역 인터넷 접수 기준 (부산 권역은 bsjlpt.or.kr 확인)",
+            "en": "Online registration for the Seoul and Jeju areas (Busan area: see bsjlpt.or.kr)",
+            "ja": "ソウル・済州圏のインターネット受付基準（釜山圏は bsjlpt.or.kr を確認）",
+            "zh": "以首尔·济州地区网上报名为准（釜山地区请查看 bsjlpt.or.kr）"
+          },
+          "url": "https://www.jlpt.or.kr/html/information_01.html"
+        }
+      ]
     }
   ]
 }
