@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "exam": "JLPT",
+  "updatedAt": "2026-09-14",
+  "officialURL": "https://www.jlpt.jp/e/",
+  "regions": [
+    {
+      "id": "KR",
+      "name": {
+        "ko": "한국",
+        "en": "Korea",
+        "ja": "韓国",
+        "zh": "韩国",
+        "vi": "Hàn Quốc"
+      },
+      "countries": [
+        "KR"
+      ],
+      "default": true,
+      "officialURL": "https://www.jlpt.or.kr",
+      "sessions": []
+    }
+  ]
+}
